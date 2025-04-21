@@ -374,7 +374,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('Report inappropriate contenret:'),
+                          const Text('Report inappropriate content:'),
                           ElevatedButton(
                               onPressed: () {
                                 sendEmail(recievedImage);
@@ -455,7 +455,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                             padding: const EdgeInsets.symmetric(
                                                 vertical: 20),
                                             child: ElevatedButton(
-                                                onPressed: () {
+                                                onPressed: () async {
                                                   if (InAppPurchase.isPro ||
                                                       InAppPurchase.isProAI) {
                                                     if (widget.editedvideo !=
@@ -474,18 +474,20 @@ class _ResultScreenState extends State<ResultScreen> {
                                                   } else {
                                                     if (widget.editedvideo !=
                                                         null) {
-                                                      final adService = Provider
-                                                          .of<RewardAdsService>(
-                                                              context,
-                                                              listen: false);
-                                                      adService.showAd(context,
-                                                          () async {
-                                                        await SnapChatHelper
-                                                            .sendVideoToSnapChat(
-                                                                widget
-                                                                    .editedvideo,
-                                                                context);
-                                                      });
+                                                      // await SnapChatHelper
+                                                      //     .sendVideoToSnapChat(
+                                                      //         widget
+                                                      //             .editedvideo,
+                                                      //         context);
+                                                      // final adService = Provider
+                                                      //     .of<RewardAdsService>(
+                                                      //         context,
+                                                      //         listen: false
+                                                      //         );
+                                                      // adService.showAd(context,
+                                                      //     () async {
+
+                                                      // });
                                                       showDialog(
                                                         context: context,
                                                         builder: (context) =>
@@ -502,17 +504,18 @@ class _ResultScreenState extends State<ResultScreen> {
                                                     } else if (recievedImage !=
                                                         null) {
                                                       if (isSwitched) {
-                                                        final adService = Provider
-                                                            .of<RewardAdsService>(
-                                                                context,
-                                                                listen: false);
-                                                        adService.showAd(
-                                                            context, () async {
-                                                          await SnapChatHelper
-                                                              .sendImageToSnapChat(
-                                                                  recievedImage!,
-                                                                  context);
-                                                        });
+                                                        // final adService = Provider
+                                                        //     .of<RewardAdsService>(
+                                                        //         context,
+                                                        //         listen: false);
+                                                        // adService.showAd(
+                                                        //     context, () async {
+
+                                                        // });
+                                                        // await SnapChatHelper
+                                                        //     .sendImageToSnapChat(
+                                                        //         recievedImage!,
+                                                        //         context);
                                                         showDialog(
                                                           context: context,
                                                           builder: (context) =>
@@ -526,23 +529,27 @@ class _ResultScreenState extends State<ResultScreen> {
                                                           ),
                                                         );
                                                       } else {
-                                                        final adService = Provider
-                                                            .of<RewardAdsService>(
-                                                                context,
-                                                                listen: false);
-                                                        adService.showAd(
-                                                            context, () async {
-                                                          await SnapChatHelper
-                                                              .sendImageToSnapChat(
-                                                                  watermarkedImage!,
-                                                                  context);
-                                                        });
+                                                        // await SnapChatHelper
+                                                        //     .sendImageToSnapChat(
+                                                        //         watermarkedImage!,
+                                                        //         context);
+                                                        // final adService = Provider
+                                                        //     .of<RewardAdsService>(
+                                                        //         context,
+                                                        //         listen: false);
+                                                        // adService.showAd(
+                                                        //     context, () async {
+                                                        //   await SnapChatHelper
+                                                        //       .sendImageToSnapChat(
+                                                        //       watermarkedImage!,
+                                                        //       context);
+                                                        // });
                                                         showDialog(
                                                           context: context,
                                                           builder: (context) =>
                                                               SnapChatShareDialog(
-                                                            onTapShare: () {
-                                                              SnapChatHelper
+                                                            onTapShare: () async {
+                                                              await SnapChatHelper
                                                                   .sendImageToSnapChat(
                                                                       watermarkedImage!,
                                                                       context);

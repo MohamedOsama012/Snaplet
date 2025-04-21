@@ -30,7 +30,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: themeProvider.isDarkMode? darkMoodColor : Colors.white,
+      backgroundColor: themeProvider.isDarkMode ? darkMoodColor : Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,9 +49,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                   colors: [Colors.purple, Colors.pink],
                 ),
                 style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w700,
-                fontSize: 20.sp
-              ),
+                    fontWeight: FontWeight.w700, fontSize: 20.sp),
               ),
             ],
           ),
@@ -63,11 +61,11 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
               Expanded(
                   child: Text(
                 'Upload an image or video, apply edits, and share your creation directly to Snapchat.',
-                style:  TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 16.sp 
-              ),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp),
               )),
+              SizedBox(
+                width: 17.w,
+              )
             ],
           ),
           SizedBox(
@@ -94,7 +92,8 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                     );
                     await AdsLoader.showInterstitialAd();
                     if (editedImage != null) {
-                      Provider.of<GetIMageServices>(context,listen: false).isInappropriate = false;
+                      Provider.of<GetIMageServices>(context, listen: false)
+                          .isInappropriate = false;
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => ResultScreen(
                                 editedImage: editedImage,
@@ -117,7 +116,9 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: themeProvider.isDarkMode? darkModeHeavey : Colors.white,
+                    color: themeProvider.isDarkMode
+                        ? darkModeHeavey
+                        : Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.purple.withOpacity(0.7),
@@ -140,7 +141,9 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                         Image.asset(
                           'assets/starryImages/2.png',
                           width: 100.w,
-                          color: themeProvider.isDarkMode? Colors.white : Colors.black,
+                          color: themeProvider.isDarkMode
+                              ? Colors.white
+                              : Colors.black,
                         ),
                         GradientText(
                           "Edit Image",
@@ -165,7 +168,8 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                   if (result != null) {
                     final file = File(result.files.single.path!);
                     if (!mounted) return;
-                    Provider.of<GetIMageServices>(context,listen: false).isInappropriate = false;
+                    Provider.of<GetIMageServices>(context, listen: false)
+                        .isInappropriate = false;
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ShowOptionsScreen(
@@ -181,7 +185,9 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                   height: 145.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: themeProvider.isDarkMode? darkModeHeavey : Colors.white,
+                    color: themeProvider.isDarkMode
+                        ? darkModeHeavey
+                        : Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.purple.withOpacity(0.7),
@@ -204,9 +210,11 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                         Image.asset(
                           "assets/starryImages/1.png",
                           width: 100.w,
-                          color: themeProvider.isDarkMode? Colors.white : Colors.black,
+                          color: themeProvider.isDarkMode
+                              ? Colors.white
+                              : Colors.black,
                         ),
-                         GradientText(
+                        GradientText(
                           "Edit Video",
                           gradient: const LinearGradient(
                             colors: [Colors.purple, Colors.pink],
