@@ -123,8 +123,8 @@ class InAppPurchase {
 
     Offering? offering;
     
-      offering = offerings.getOffering("pro AI"); 
-    
+      offering = offerings.getOffering("premium_subscription_group");
+
 
     if (offering != null && offering.availablePackages.isNotEmpty) {
       Navigator.of(context).push(

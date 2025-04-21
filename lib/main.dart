@@ -5,7 +5,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:sfs_editor/core/in_app_purchase.dart';
 import 'package:sfs_editor/screens/splashscreen.dart';
-import 'package:sfs_editor/services/ai_tools_service.dart';
 import 'package:sfs_editor/services/dark_mode_service.dart';
 import 'package:sfs_editor/services/getimg_services.dart';
 import 'package:sfs_editor/services/reward_ads_service.dart';
@@ -32,7 +31,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => GetIMageServices()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => AiToolsProvider()),
         ChangeNotifierProvider(create: (_) => RewardAdsService()),
       ],
       child: ScreenUtilInit(

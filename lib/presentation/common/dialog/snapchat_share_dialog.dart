@@ -19,8 +19,8 @@ class _SnapChatShareDialogState extends State<SnapChatShareDialog> {
   RewardedAd? rewardedAd;
   bool isLoadingAd = false;
   final adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3523762960785202/7946213982' 
-      : 'ca-app-pub-3863114333197264/2535327369'; 
+      ? 'ca-app-pub-3523762960785202/7946213982'
+      : 'ca-app-pub-3863114333197264/2535327369';
 
   void loadAd() {
     setState(() {
@@ -88,12 +88,12 @@ class _SnapChatShareDialogState extends State<SnapChatShareDialog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
-                'assets/icons/snapchat_icon.png', 
+                'assets/icons/snapchat_icon.png',
                 width: 100,
               ),
               const SizedBox(height: 16),
               const Text(
-                'Watch ad to be able to share media via Snapchat or get the premium version', 
+                'Watch ad to be able to share media via Snapchat or get the premium version',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
@@ -119,7 +119,7 @@ class _SnapChatShareDialogState extends State<SnapChatShareDialog> {
                                 });
                               });
                             },
-                      child: Padding( 
+                      child: Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 12,
                           horizontal: 20,
@@ -128,16 +128,27 @@ class _SnapChatShareDialogState extends State<SnapChatShareDialog> {
                             ? Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const CircularProgressIndicator(color: Colors.yellow),
+                                  const SizedBox(
+                                    width: 20,
+                                    height: 20,
+                                    child: CircularProgressIndicator(
+                                      color: Colors.yellow,
+                                      strokeWidth: 2,
+                                    ),
+                                  ),
                                   SizedBox(width: 5.w),
-                                  const Text('Loading...', style: TextStyle(color: Colors.yellow)),
+                                  const Text('Loading...',
+                                      style: TextStyle(
+                                          color: Colors.yellow, fontSize: 13)),
                                 ],
                               )
-                            : const Text('Watch Ad', textAlign: TextAlign.center, style: TextStyle(color: Colors.yellow)),
+                            : const Text('Watch Ad',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.yellow)),
                       ),
                     ),
                   ),
-                  SizedBox(width: isLoadingAd? 5.w : 25.w),
+                  SizedBox(width: isLoadingAd ? 5.w : 25.w),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.yellow,
@@ -152,7 +163,10 @@ class _SnapChatShareDialogState extends State<SnapChatShareDialog> {
                           vertical: 12,
                           horizontal: 20,
                         ),
-                        child: Text('Get Premium', textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(0, 0, 0, 0.867))),
+                        child: Text('Get Premium',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 0.867))),
                       ),
                     ),
                   ),

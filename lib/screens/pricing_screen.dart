@@ -20,12 +20,11 @@ class PricingScreen extends StatefulWidget {
 }
 
 class _PricingScreenState extends State<PricingScreen> {
-  bool isSwitched = false;
+
   int selectedProduct = 0;
   final loading = ValueNotifier(false);
   late final Future<CustomerInfo> restorePurchasesFuture;
-  List<Package> packages = [];
-  Offering? offering;
+
   dynamic offerings;
   String store = Platform.isAndroid ? 'Google play' : 'ItunesAccount';
   String _getTodayDateString() {
@@ -33,7 +32,6 @@ class _PricingScreenState extends State<PricingScreen> {
     final DateFormat formatter = DateFormat('yyyy-MM-dd');
     return formatter.format(now);
   }
-
 
   @override
   void initState() {
@@ -70,16 +68,6 @@ class _PricingScreenState extends State<PricingScreen> {
   Future<void> fetchOffers() async {
     offerings = await Purchases.getOfferings();
   }
-
-  List<String> images = [
-    'assets/pricingimages/11.png',
-    'assets/pricingimages/12.png',
-    'assets/pricingimages/13.png',
-    // 'assets/pricingimages/14.png',
-    'assets/pricingimages/15.png',
-    'assets/pricingimages/16.png',
-    'assets/pricingimages/17.png',
-  ];
   List<String> noAIimages = [
     'assets/pricingimages/14.png',
     'assets/pricingimages/11.png',
@@ -92,15 +80,6 @@ class _PricingScreenState extends State<PricingScreen> {
     'Send unlimited live snaps',
     'Increase snapchat score',
     // 'Send 4k videos',
-    'No watermarks!',
-    'Remove ads',
-    'First 3 days free',
-  ];
-  List<String> texts = [
-    'Unlimited AI geneterating with different models',
-    'access to ai-tool Up-scale 2 times/day',
-    'Send unlimited live snaps',
-    // 'Faster image processing',
     'No watermarks!',
     'Remove ads',
     'First 3 days free',
@@ -173,14 +152,13 @@ class _PricingScreenState extends State<PricingScreen> {
                 ),
                 const SizedBox(height: 10),
                 Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
                   height: 140,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Scrollbar(
-                      thumbVisibility:true,
+                      thumbVisibility: true,
                       child: SingleChildScrollView(
                         child: Container(
                           padding: const EdgeInsets.all(16.0),
@@ -195,7 +173,7 @@ class _PricingScreenState extends State<PricingScreen> {
                               ),
                             ],
                           ),
-                          child:  Column(
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
@@ -207,7 +185,7 @@ class _PricingScreenState extends State<PricingScreen> {
                                 ),
                               ),
                               Text(
-                                'Starting from today Trial period for 3 days ${packageToString(!isSwitched ? widget.packages[selectedProduct] : packages[selectedProduct])} Starting from ${_getTodayDateString()} You can pay at any time on the $store subscriptions page.No charges will be made if you cancel the subscription before the end of the trial period, and a reminder will be sent to you two days before the trial ends.',
+                                'Starting from today Trial period for 3 days ${packageToString( widget.packages[selectedProduct])} Starting from ${_getTodayDateString()} You can pay at any time on the $store subscriptions page.No charges will be made if you cancel the subscription before the end of the trial period, and a reminder will be sent to you two days before the trial ends.',
                                 style: const TextStyle(color: Colors.black),
                               ),
                             ],
@@ -218,7 +196,7 @@ class _PricingScreenState extends State<PricingScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                ...List.generate(isSwitched ? noAItexts.length : texts.length,
+                ...List.generate(noAItexts.length ,
                     (index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -226,14 +204,14 @@ class _PricingScreenState extends State<PricingScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
-                          isSwitched ? noAIimages[index] : images[index],
+                         noAIimages[index],
                           width: 24,
                           height: 24,
                         ),
                         const SizedBox(width: 10),
                         Expanded(
                           child: Text(
-                            isSwitched ? noAItexts[index] : texts[index],
+                            noAItexts[index],
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
@@ -243,30 +221,6 @@ class _PricingScreenState extends State<PricingScreen> {
                     ),
                   );
                 }),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Or just live Snaps without ads: ',
-                      style: TextStyle(fontSize: 18, color: Colors.black),
-                    ),
-                    Switch(
-                        value: isSwitched,
-                        onChanged: (value){
-                          setState(() {
-                            isSwitched = !isSwitched;
-                          });
-                          if (isSwitched) {
-      offering = offerings.getOffering("premium_subscription_group");
-    } else {
-      offering = offerings.getOffering("pro AI");
-    }
-    setState(() {
-      packages = offering!.availablePackages;
-    });
-                        }),
-                  ],
-                ),
                 const SizedBox(
                   height: 170,
                 )
@@ -287,9 +241,7 @@ class _PricingScreenState extends State<PricingScreen> {
                     },
                     child: const Text('Restore Purchase'),
                   ),
-                for (var (index, package) in packages.isEmpty && !isSwitched
-                    ? widget.packages.indexed
-                    : packages.indexed)
+                for (var (index, package) in widget.packages.indexed)
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: 60,
@@ -370,21 +322,12 @@ class _PricingScreenState extends State<PricingScreen> {
                           onTap: () async {
                             if (!loading.value) {
                               loading.value = true;
-                              if (packages.isEmpty && !isSwitched) {
                                 InAppPurchase.buyPackage(
                                         widget.packages[selectedProduct])
                                     .then((value) {
                                   loading.value = false;
                                   Navigator.of(context).pop();
                                 });
-                              } else {
-                                InAppPurchase.buyPackage(
-                                        packages[selectedProduct])
-                                    .then((value) {
-                                  loading.value = false;
-                                  Navigator.of(context).pop();
-                                });
-                              }
                             }
                           },
                           child: Center(
@@ -415,7 +358,7 @@ class _PricingScreenState extends State<PricingScreen> {
                                         ),
                                       ),
                                       Text(
-                                          'then, ${packageToString(!isSwitched ? widget.packages[selectedProduct] : packages[selectedProduct])}')
+                                          'then, ${packageToString( widget.packages[selectedProduct])}')
                                     ],
                                   );
                                 }),
