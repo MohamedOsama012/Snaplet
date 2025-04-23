@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: themeProvider.getTheme,
-              title: 'Snaplet',
+              title: 'Livroll',
               home: const SplashScreen(),
             );
           },
