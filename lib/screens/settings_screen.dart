@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -23,13 +22,12 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool isDarkMood = true;
-  Future<void> sendEmail() async{
-    final Email email =Email(
-      body: '',
-      subject: 'Contact Support',
-      recipients: ['Moatazforads@gmail.com'],
-      isHTML: false
-    );
+  Future<void> sendEmail() async {
+    final Email email = Email(
+        body: '',
+        subject: 'Contact Support',
+        recipients: ['Moatazforads@gmail.com'],
+        isHTML: false);
     String platformResponse;
 
     try {
@@ -48,6 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -60,7 +59,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/starryImages/insideLogo.png'),
+            Image.asset(
+              'assets/icons/logo_new.jpg',
+              height: 30.h,
+            ),
             const Text(
               'Livroll',
               style: TextStyle(
@@ -100,8 +102,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             CustomSettingsContainer(
                 onTap: () {
                   Share.share(
-          'Check out this amazing app: Livroll! Download it from [Google Play](https://play.google.com/store/apps/details?id=com.m3tz.sfs_editor) and [App store](https://apps.apple.com/app/id6483004451)',
-        );
+                    'Check out this amazing app: Livroll! Download it from [Google Play](https://play.google.com/store/apps/details?id=com.m3tz.sfs_editor) and [App store](https://apps.apple.com/app/id6483004451)',
+                  );
                 },
                 text: 'Share Livroll',
                 image: 'assets/starryImages/shareicon.png'),
@@ -128,7 +130,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ListTile(
                       title: Text(
                         'Privacy Policy',
-                        style:  TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: themeProvider.isDarkMode
                               ? Colors.white
@@ -143,7 +145,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ListTile(
                       title: Text(
                         'Terms and Conditions',
-                        style:  TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: themeProvider.isDarkMode
                               ? Colors.white
@@ -155,39 +157,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     const Divider(),
-      //               ListTile(
-      //                 title: Text(
-      //                   'Like us?, rate us!',
-      //                   style:  TextStyle(
-      //                     fontWeight: FontWeight.w700,
-      //                     color: themeProvider.isDarkMode
-      //                         ? Colors.white
-      //                         : Colors.black,
-      //                   ),
-      //                 ),
-      //                 onTap:  () async {
-      //   if (await inAppReview.isAvailable()) {
-      //     inAppReview.requestReview();
-      //   } else {
-      //     inAppReview.openStoreListing();
-      //   }
-      // },
-      //               ),
+                    //               ListTile(
+                    //                 title: Text(
+                    //                   'Like us?, rate us!',
+                    //                   style:  TextStyle(
+                    //                     fontWeight: FontWeight.w700,
+                    //                     color: themeProvider.isDarkMode
+                    //                         ? Colors.white
+                    //                         : Colors.black,
+                    //                   ),
+                    //                 ),
+                    //                 onTap:  () async {
+                    //   if (await inAppReview.isAvailable()) {
+                    //     inAppReview.requestReview();
+                    //   } else {
+                    //     inAppReview.openStoreListing();
+                    //   }
+                    // },
+                    //               ),
                     //const Divider(),
                     ListTile(
                       title: Text(
                         'Official Website',
-                        style:  TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: themeProvider.isDarkMode
                               ? Colors.white
                               : Colors.black,
                         ),
                       ),
-                      onTap:() async {
-        const url = 'https://snaplet.art';
-        launchUrlString(url);
-      },
+                      onTap: () async {
+                        const url = 'https://snaplet.art';
+                        launchUrlString(url);
+                      },
                     ),
                   ],
                 )),
@@ -237,7 +239,7 @@ class CustomSettingsContainer extends StatelessWidget {
                 ),
                 Text(
                   text,
-                  style:  TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.w700,
                       color: themeProvider.isDarkMode
                           ? Colors.white
