@@ -1,4 +1,4 @@
-package com.m3tz.sfs_editor
+package com.app.livroll
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
