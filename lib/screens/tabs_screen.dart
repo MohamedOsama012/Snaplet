@@ -57,9 +57,7 @@ class _TabsScreenState extends State<TabsScreen> {
               themeProvider.isDarkMode ? Colors.white : Colors.black,
           title: Row(
             children: [
-              Image.asset(
-                  'assets/starryImages/snaplet-logo high small3 edited.png',
-                  width: 35),
+              Image.asset('assets/icons/logo_new.jpg', width: 35),
               const Text('Snaplet',
                   style: TextStyle(fontWeight: FontWeight.w700)),
             ],

@@ -5,7 +5,7 @@ description: "A new Flutter project."
 version: 1.0.0+28
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
 
   image_editor_plus:
     path: ./image_editor_plus/
-  
+
   cupertino_icons: ^1.0.8
   appcheck: ^1.5.2
   url_launcher: ^6.2.6
@@ -58,7 +58,6 @@ dev_dependencies:
   icons_launcher: ^2.1.7
 
 flutter:
-
   uses-material-design: true
 
   assets:

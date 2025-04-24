@@ -210,7 +210,7 @@ class _ResultScreenState extends State<ResultScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/starryImages/snaplet-logo high small3 edited.png',
+                'assets/icons/logo_new.jpg',
                 width: 35,
               ),
               const Text(
@@ -548,7 +548,8 @@ class _ResultScreenState extends State<ResultScreen> {
                                                           context: context,
                                                           builder: (context) =>
                                                               SnapChatShareDialog(
-                                                            onTapShare: () async {
+                                                            onTapShare:
+                                                                () async {
                                                               await SnapChatHelper
                                                                   .sendImageToSnapChat(
                                                                       watermarkedImage!,

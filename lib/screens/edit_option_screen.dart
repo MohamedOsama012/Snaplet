@@ -7,7 +7,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:google_fonts/google_fonts.dart';
 import 'package:image_editor_plus/image_editor_plus.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -43,13 +42,12 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
               SizedBox(
                 width: 15.w,
               ),
-              GradientText(
+              Text(
                 'Edit and share',
-                gradient: const LinearGradient(
-                  colors: [Colors.purple, Colors.pink],
-                ),
                 style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.w700, fontSize: 20.sp),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20.sp,
+                    color: Colors.amber),
               ),
             ],
           ),
@@ -119,20 +117,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                     color: themeProvider.isDarkMode
                         ? darkModeHeavey
                         : Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.purple.withOpacity(0.7),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: const Offset(-1, -1),
-                      ),
-                      BoxShadow(
-                        color: Colors.pink.withOpacity(0.7),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: const Offset(1, 1),
-                      ),
-                    ],
+                    border: Border.all(color: Colors.amber, width: 2),
                   ),
                   child: Center(
                     child: Column(
@@ -145,13 +130,12 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                               ? Colors.white
                               : Colors.black,
                         ),
-                        GradientText(
+                        Text(
                           "Edit Image",
-                          gradient: const LinearGradient(
-                            colors: [Colors.purple, Colors.pink],
-                          ),
                           style: GoogleFonts.nunito(
-                              fontWeight: FontWeight.w700, fontSize: 16),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16,
+                              color: Colors.amber),
                         ),
                       ],
                     ),
@@ -188,20 +172,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                     color: themeProvider.isDarkMode
                         ? darkModeHeavey
                         : Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.purple.withOpacity(0.7),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: const Offset(-1, -1),
-                      ),
-                      BoxShadow(
-                        color: Colors.pink.withOpacity(0.7),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: const Offset(1, 1),
-                      ),
-                    ],
+                    border: Border.all(color: Colors.amber, width: 2),
                   ),
                   child: Center(
                     child: Column(
@@ -214,13 +185,12 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                               ? Colors.white
                               : Colors.black,
                         ),
-                        GradientText(
+                        Text(
                           "Edit Video",
-                          gradient: const LinearGradient(
-                            colors: [Colors.purple, Colors.pink],
-                          ),
                           style: GoogleFonts.nunito(
-                              fontWeight: FontWeight.w700, fontSize: 16),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16,
+                              color: Colors.amber),
                         ),
                       ],
                     ),
@@ -230,29 +200,6 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class GradientText extends StatelessWidget {
-  const GradientText(this.text,
-      {super.key, required this.gradient, this.style});
-
-  final String text;
-  final TextStyle? style;
-  final Gradient gradient;
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      blendMode: BlendMode.srcIn,
-      shaderCallback: (bounds) => gradient.createShader(
-        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-      ),
-      child: Text(
-        text,
-        style: style,
       ),
     );
   }
