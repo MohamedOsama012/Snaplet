@@ -62,7 +62,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             Image.asset('assets/starryImages/insideLogo.png'),
             const Text(
-              'Snaplet',
+              'Livroll',
               style: TextStyle(
                 fontWeight: FontWeight.w700,
               ),
@@ -100,10 +100,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             CustomSettingsContainer(
                 onTap: () {
                   Share.share(
-          'Check out this amazing app: Snaplet! Download it from [Google Play](https://play.google.com/store/apps/details?id=com.m3tz.sfs_editor) and [App store](https://apps.apple.com/app/id6483004451)',
+          'Check out this amazing app: Livroll! Download it from [Google Play](https://play.google.com/store/apps/details?id=com.m3tz.sfs_editor) and [App store](https://apps.apple.com/app/id6483004451)',
         );
                 },
-                text: 'Share Snaplet',
+                text: 'Share Livroll',
                 image: 'assets/starryImages/shareicon.png'),
             SizedBox(
               height: 15.h,

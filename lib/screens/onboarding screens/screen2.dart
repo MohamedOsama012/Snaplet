@@ -40,7 +40,7 @@ class ScreenConsistance2 extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 30, right: 30),
                     child: Text(
-                      'With Snaplet, you can send pictures and videos from camera roll as a live snap on\n                            SnapChat.\n          You can send the ai generated\n                  media as a live snap ',
+                      'With Livroll, you can send pictures and videos from camera roll as a live snap on\n                            SnapChat.\n          You can send the ai generated\n                  media as a live snap ',
                       style: TextStyle(
                           fontSize: 15,
                           color: themeProvider.isDarkMode? Colors.white : Colors.black,

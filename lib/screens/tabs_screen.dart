@@ -58,7 +58,7 @@ class _TabsScreenState extends State<TabsScreen> {
           title: Row(
             children: [
               Image.asset('assets/icons/logo_new.jpg', width: 35),
-              const Text('Snaplet',
+              const Text('Livroll',
                   style: TextStyle(fontWeight: FontWeight.w700)),
             ],
           ),

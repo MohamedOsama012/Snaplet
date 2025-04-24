@@ -133,7 +133,7 @@ class _PricingScreenState extends State<PricingScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Snaplet',
+                      'Livroll',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

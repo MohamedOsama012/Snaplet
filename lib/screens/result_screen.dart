@@ -214,7 +214,7 @@ class _ResultScreenState extends State<ResultScreen> {
                 width: 35,
               ),
               const Text(
-                'Snaplet',
+                'Livroll',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                 ),

@@ -31,7 +31,7 @@ class ScreenConsistance1 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Snaplet',
+                  'Livroll',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,

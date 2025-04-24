@@ -71,7 +71,7 @@ class SubscriptionsBottomSheetState extends State<SubscriptionsBottomSheet> {
               const SizedBox(
                 width: double.infinity,
                 child: Text(
-                  "Snaplet Premium",
+                  "Livroll Premium",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 22,
