@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sfs_editor/screens/tabs_screen.dart';
 
+import '../core/ads/ads_loader.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -12,6 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+     AdsLoader.loadAdBanner();
+     AdsLoader.loadInterstitialAd();
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,

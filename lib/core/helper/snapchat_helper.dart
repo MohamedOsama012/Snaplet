@@ -87,24 +87,25 @@ class SnapChatHelper {
           behavior: SnackBarBehavior.floating,
         ),
       );
+
       return;
     }
-    // XFile? videoFile;
-    void whenFinished() {
-      if (videoFile == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("No video"),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-        return;
-      }
+    if (videoFile != null){
       SnapkitFlutter.instance
           .send(mediaType: SnapMediaType.video, filePath: videoFile.path);
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("No video"),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
     }
 
-    AdsLoader.loadInterstitialAd(whenFinished: whenFinished);
+    // XFile? videoFile;
+
+
     // final ImagePicker picker = ImagePicker();
     // videoFile = await picker.pickVideo(
     //   source: ImageSource.gallery,
@@ -112,6 +113,5 @@ class SnapChatHelper {
     // skipCompression: InAppPurchase.isPro
     // );
 
-    await AdsLoader.showInterstitialAd(whenFinished: whenFinished);
   }
 }

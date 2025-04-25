@@ -89,9 +89,7 @@ class _ShowOptionsScreenState extends State<ShowOptionsScreen> {
                   ),
                   IconButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (ctx)=>  ResultScreen(editedvideo: editedVideo,isVid: true,))
-                        );
+                        Navigator.of(context).pop(editedVideo);
                       },
                       icon: const Text(
                         'Done',
