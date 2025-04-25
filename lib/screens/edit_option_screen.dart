@@ -58,7 +58,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
               ),
               Expanded(
                   child: Text(
-                'Upload an image or video, apply edits, and share your creation directly to Snapchat.',
+                'Upload an image or video, apply edits, and share your creations',
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp),
               )),
               SizedBox(

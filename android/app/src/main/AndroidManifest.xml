@@ -23,7 +23,7 @@
         <!-- android:name="com.snapchat.kit.sdk.clientId"  -->
         <meta-data 
             android:name="com.snap.kit.clientId"
-            android:value="3668ea85-8078-476e-a2cd-e4f914122ff5" />
+            android:value="6f2d3de8-b98f-4f0d-949b-d0556b020bea" />
 
         <meta-data
            android:name="com.snapchat.kit.sdk.redirectUrl"

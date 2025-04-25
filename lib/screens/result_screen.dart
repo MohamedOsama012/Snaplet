@@ -572,7 +572,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                                           255, 216, 213, 213),
                                                 ),
                                                 child: const Text(
-                                                  'share live Snap',
+                                                  'share to Snap',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w700,
                                                     fontSize: 20,
