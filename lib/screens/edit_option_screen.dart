@@ -1,10 +1,12 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -30,6 +32,30 @@ class EditOptionScreen extends StatefulWidget {
 }
 
 class _EditOptionScreenState extends State<EditOptionScreen> {
+  Future<void> sendEmail() async {
+    final Email email = Email(
+        body: '',
+        subject: 'Contact Support',
+        recipients: ['Moatazforads@gmail.com'],
+        isHTML: false);
+    String platformResponse;
+
+    try {
+      await FlutterEmailSender.send(email);
+      platformResponse = 'success';
+    } catch (error) {
+      platformResponse = error.toString();
+    }
+
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(platformResponse),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -164,6 +190,36 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                                         )),
                                   ],
                                 ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ElevatedButton(
+                                            onPressed: sendEmail,
+                                            style: ElevatedButton.styleFrom(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 8,
+                                                      horizontal: 10),
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      255, 216, 213, 213),
+                                              foregroundColor: Colors.black,
+                                            ),
+                                            child: const Text(
+                                              'Report a problem',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 20,
+                                              ),
+                                            )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           );
@@ -233,7 +289,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                       ),
                     );
                     await AdsLoader.showInterstitialAd();
-                    if(editedVideo != null) {
+                    if (editedVideo != null) {
                       showModalBottomSheet(
                         context: context,
                         backgroundColor: Colors.white,
@@ -245,7 +301,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                               children: [
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -254,15 +310,15 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                                           onPressed: () async {
                                             await SnapChatHelper
                                                 .sendVideoToSnapChat(
-                                                editedVideo!, context);
+                                                    editedVideo!, context);
                                           },
                                           style: ElevatedButton.styleFrom(
                                             padding: const EdgeInsets.symmetric(
                                                 vertical: 8, horizontal: 10),
                                             backgroundColor: Colors.black,
                                             foregroundColor:
-                                            const Color.fromARGB(
-                                                255, 216, 213, 213),
+                                                const Color.fromARGB(
+                                                    255, 216, 213, 213),
                                           ),
                                           child: const Text(
                                             'share to Snap',
@@ -275,8 +331,8 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                                     ElevatedButton(
                                         onPressed: () async {
                                           if (editedVideo != null) {
-                                            XFile file = XFile(
-                                               editedVideo!.path);
+                                            XFile file =
+                                                XFile(editedVideo!.path);
                                             Share.shareXFiles([file]);
                                           }
                                         },
@@ -302,8 +358,6 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
                         },
                       );
                     }
-
-
                   }
                 },
                 child: Container(
@@ -342,18 +396,20 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
               ),
             ],
           ),
-        const Spacer(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
+          const Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
                 width: AdsLoader.adBaner!.size.width.toDouble(),
                 height: AdsLoader.adBaner!.size.height.toDouble(),
                 child: AdWidget(ad: AdsLoader.adBaner!),
-            ),
-          ],
-        ),
-          SizedBox(height: 40,)
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 40,
+          )
         ],
       ),
     );
