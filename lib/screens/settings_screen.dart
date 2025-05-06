@@ -26,7 +26,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final Email email = Email(
         body: '',
         subject: 'Contact Support',
-        recipients: ['Moatazforads@gmail.com'],
+        recipients: ['Support@livroll.com'],
         isHTML: false);
     String platformResponse;
 
@@ -102,8 +102,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             CustomSettingsContainer(
                 onTap: () {
                   Share.share(
-          'Check out this amazing app: Livroll! Download it from [Google Play](https://play.google.com/store/apps/details?id=com.app.livroll) and [App store](https://apps.apple.com/app/id6483004451)',
-        );
+                    'Check out this amazing app: Livroll! Download it from [Google Play](https://play.google.com/store/apps/details?id=com.app.livroll) and [App store](https://apps.apple.com/app/id6483004451)',
+                  );
                 },
                 text: 'Share Livroll',
                 image: 'assets/starryImages/shareicon.png'),
@@ -187,7 +187,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ),
                       onTap: () async {
-                        const url = 'https://snaplet.art';
+                        const url = 'https://Livroll.com';
                         launchUrlString(url);
                       },
                     ),

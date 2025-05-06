@@ -36,7 +36,7 @@ class _EditOptionScreenState extends State<EditOptionScreen> {
     final Email email = Email(
         body: '',
         subject: 'Contact Support',
-        recipients: ['Moatazforads@gmail.com'],
+        recipients: ['Support@livroll.com'],
         isHTML: false);
     String platformResponse;
 
