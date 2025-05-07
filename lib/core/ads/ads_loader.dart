@@ -255,7 +255,7 @@ class AdsLoader {
     if (stopAds.value) return;
 
     if (adBaner == null) {
-      log("Warning: attemp to show banner before load");
+      log("Warning: attempt to show banner before load");
       loadAdBanner();
       return;
     }
@@ -276,7 +276,7 @@ class AdsLoader {
           _numAppOpenLoadAttempts = 0;
           if (appOpenAd == null) {
             if (!kDebugMode) {
-              debugPrint("Warning: attemp to show app open before load");
+              debugPrint("Warning: attempt to show app open before load");
             }
             return;
           } else {
@@ -308,7 +308,7 @@ class AdsLoader {
         },
         onAdFailedToLoad: (LoadAdError error) {
           if (!kDebugMode) {
-            debugPrint("============= App Open Faild to Load ============");
+            debugPrint("============= App Open Failed to Load ============");
             debugPrint('AppOpenAd failed to load: ${error.message}.');
           }
           _numAppOpenLoadAttempts += 1;
@@ -326,7 +326,7 @@ class AdsLoader {
     if (stopAds.value) return;
 
     if (appOpenAd == null) {
-      log("Warning: attemp to show app open before load");
+      log("Warning: attempt to show app open before load");
       loadAppOpenAd();
       return;
     }

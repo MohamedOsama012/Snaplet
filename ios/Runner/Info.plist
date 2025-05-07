@@ -37,7 +37,7 @@
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>Access the gallery to choose the image or video you would edit.</string>
 		<key>SCSDKClientId</key>
-		<string>3668ea85-8078-476e-a2cd-e4f914122ff5</string>
+		<string>6f2d3de8-b98f-4f0d-949b-d0556b020bea</string>
 		<key>SKAdNetworkItems</key>
 		<array>
 			<dict>

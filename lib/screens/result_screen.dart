@@ -474,11 +474,11 @@ class _ResultScreenState extends State<ResultScreen> {
                                                   } else {
                                                     if (widget.editedvideo !=
                                                         null) {
-                                                      // await SnapChatHelper
-                                                      //     .sendVideoToSnapChat(
-                                                      //         widget
-                                                      //             .editedvideo,
-                                                      //         context);
+                                                      await SnapChatHelper
+                                                          .sendVideoToSnapChat(
+                                                              widget
+                                                                  .editedvideo,
+                                                              context);
                                                       // final adService = Provider
                                                       //     .of<RewardAdsService>(
                                                       //         context,
@@ -488,19 +488,19 @@ class _ResultScreenState extends State<ResultScreen> {
                                                       //     () async {
 
                                                       // });
-                                                      showDialog(
-                                                        context: context,
-                                                        builder: (context) =>
-                                                            SnapChatShareDialog(
-                                                          onTapShare: () {
-                                                            SnapChatHelper
-                                                                .sendVideoToSnapChat(
-                                                                    widget
-                                                                        .editedvideo,
-                                                                    context);
-                                                          },
-                                                        ),
-                                                      );
+                                                      // showDialog(
+                                                      //   context: context,
+                                                      //   builder: (context) =>
+                                                      //       SnapChatShareDialog(
+                                                      //     onTapShare: () {
+                                                      //       SnapChatHelper
+                                                      //           .sendVideoToSnapChat(
+                                                      //               widget
+                                                      //                   .editedvideo,
+                                                      //               context);
+                                                      //     },
+                                                      //   ),
+                                                      // );
                                                     } else if (recievedImage !=
                                                         null) {
                                                       if (isSwitched) {
@@ -512,27 +512,27 @@ class _ResultScreenState extends State<ResultScreen> {
                                                         //     context, () async {
 
                                                         // });
-                                                        // await SnapChatHelper
-                                                        //     .sendImageToSnapChat(
-                                                        //         recievedImage!,
-                                                        //         context);
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              SnapChatShareDialog(
-                                                            onTapShare: () {
-                                                              SnapChatHelper
-                                                                  .sendImageToSnapChat(
-                                                                      recievedImage!,
-                                                                      context);
-                                                            },
-                                                          ),
-                                                        );
+                                                        await SnapChatHelper
+                                                            .sendImageToSnapChat(
+                                                                recievedImage!,
+                                                                context);
+                                                        // showDialog(
+                                                        //   context: context,
+                                                        //   builder: (context) =>
+                                                        //       SnapChatShareDialog(
+                                                        //     onTapShare: () {
+                                                        //       SnapChatHelper
+                                                        //           .sendImageToSnapChat(
+                                                        //               recievedImage!,
+                                                        //               context);
+                                                        //     },
+                                                        //   ),
+                                                        // );
                                                       } else {
-                                                        // await SnapChatHelper
-                                                        //     .sendImageToSnapChat(
-                                                        //         watermarkedImage!,
-                                                        //         context);
+                                                        await SnapChatHelper
+                                                            .sendImageToSnapChat(
+                                                                watermarkedImage!,
+                                                                context);
                                                         // final adService = Provider
                                                         //     .of<RewardAdsService>(
                                                         //         context,
@@ -544,19 +544,19 @@ class _ResultScreenState extends State<ResultScreen> {
                                                         //       watermarkedImage!,
                                                         //       context);
                                                         // });
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              SnapChatShareDialog(
-                                                            onTapShare:
-                                                                () async {
-                                                              await SnapChatHelper
-                                                                  .sendImageToSnapChat(
-                                                                      watermarkedImage!,
-                                                                      context);
-                                                            },
-                                                          ),
-                                                        );
+                                                        // showDialog(
+                                                        //   context: context,
+                                                        //   builder: (context) =>
+                                                        //       SnapChatShareDialog(
+                                                        //     onTapShare:
+                                                        //         () async {
+                                                        //       await SnapChatHelper
+                                                        //           .sendImageToSnapChat(
+                                                        //               watermarkedImage!,
+                                                        //               context);
+                                                        //     },
+                                                        //   ),
+                                                        // );
                                                       }
                                                     }
                                                   }
@@ -572,7 +572,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                                           255, 216, 213, 213),
                                                 ),
                                                 child: const Text(
-                                                  'share live Snap',
+                                                  'share to Snap',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w700,
                                                     fontSize: 20,

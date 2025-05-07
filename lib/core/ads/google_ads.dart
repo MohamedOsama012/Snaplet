@@ -44,9 +44,9 @@ class GoogleAds {
           : "ca-app-pub-1804755983693905/5890900511"; // iOS Release Key
 
   String get interstitialAdUnitId => Platform.isAndroid
-    ? "ca-app-pub-3523762960785202/4459387396" // Android Release Key
-    : "ca-app-pub-3863114333197264/1284220219"; // iOS Release Key
-
+      ? "ca-app-pub-3940256099942544/1033173712"
+      //"ca-app-pub-3523762960785202/4459387396" // Android Release Key
+      : "ca-app-pub-3863114333197264/1284220219"; // iOS Release Key
 
   String get nativeAdUnitId => kDebugMode
       ? "/6499/example/native" // Debug Key
@@ -117,5 +117,3 @@ class GoogleAds {
     );
   }
 }
-
-
