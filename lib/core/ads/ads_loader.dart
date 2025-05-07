@@ -124,6 +124,7 @@ class AdsLoader {
     showBannerAd();
   }
 
+
   static void loadInterstitialAd({void Function()? whenFinished, bool show = false}) {
     if (stopAds.value) return;
 
